@@ -7,6 +7,8 @@ import { QuestionComponent } from './Components/question/question.component';
 import { NotificationComponent } from './Components/notification/notification.component';
 import { ResultsComponent } from './Components/results/results.component';
 import { HomeComponent } from './Components/home/home.component';
+import { TextAnswerComponent } from './Components/text-answer/text-answer.component';
+import { ImgAnswerComponent } from './Components/img-answer/img-answer.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +16,9 @@ import { HomeComponent } from './Components/home/home.component';
     QuestionComponent,
     NotificationComponent,
     ResultsComponent,
-    HomeComponent
+    HomeComponent,
+    TextAnswerComponent,
+    ImgAnswerComponent
   ],
   imports: [
     BrowserModule,
