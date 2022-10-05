@@ -6,7 +6,7 @@
   0 0 10px rgba(155,155,155,0.8),
   0 0 20px rgba(155,155,155,0.9),
   0 0 40px rgba(155,155,155,1);
-  background: url("https://media.discordapp.net/attachments/751549067016011867/1026691811617550378/fondo_3.png?width=1373&height=676") no-repeat;
-  background-size: cover;
   width: 100%;
+
 }
+*{   padding: 0;   margin: 0; }
