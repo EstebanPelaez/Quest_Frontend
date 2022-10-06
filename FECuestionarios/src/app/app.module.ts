@@ -9,6 +9,7 @@ import { ResultsComponent } from './Components/results/results.component';
 import { HomeComponent } from './Components/home/home.component';
 import { TextAnswerComponent } from './Components/text-answer/text-answer.component';
 import { ImgAnswerComponent } from './Components/img-answer/img-answer.component';
+import { SummaryComponent } from './Components/summary/summary.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { ImgAnswerComponent } from './Components/img-answer/img-answer.component
     ResultsComponent,
     HomeComponent,
     TextAnswerComponent,
-    ImgAnswerComponent
+    ImgAnswerComponent,
+    SummaryComponent
   ],
   imports: [
     BrowserModule,
