@@ -10,6 +10,7 @@ import { HomeComponent } from './Components/home/home.component';
 import { TextAnswerComponent } from './Components/text-answer/text-answer.component';
 import { ImgAnswerComponent } from './Components/img-answer/img-answer.component';
 import { SummaryComponent } from './Components/summary/summary.component';
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { SummaryComponent } from './Components/summary/summary.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

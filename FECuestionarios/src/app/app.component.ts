@@ -9,6 +9,7 @@ export class AppComponent {
   title = 'FECuestionarios';
 
   constructor() {
-    localStorage.setItem('answerSelection', '');
+    localStorage.setItem('ip', 'localhost:8080');
+    localStorage.setItem('questionNumber', '0');
   }
 }

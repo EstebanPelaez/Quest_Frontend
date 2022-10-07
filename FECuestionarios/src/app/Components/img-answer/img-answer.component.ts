@@ -1,4 +1,5 @@
-import {Component, OnInit, Renderer2} from '@angular/core';
+import {Component, Input, OnInit, Renderer2} from '@angular/core';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-img-answer',
@@ -7,9 +8,12 @@ import {Component, OnInit, Renderer2} from '@angular/core';
 })
 export class ImgAnswerComponent implements OnInit {
 
-  constructor(private renderer2: Renderer2) { }
+  constructor(private renderer2: Renderer2, private router:Router) { }
+
   isDisabled: boolean = false;
   fb: Element | undefined;
+  @Input() questions: string[] | undefined;
+  @Input() answers: string[] | undefined;
   ngOnInit(): void {
     this.isDisabled = false;
     this.fb = document.getElementById('feedback')!;
@@ -24,6 +28,7 @@ export class ImgAnswerComponent implements OnInit {
   }
 
   verSeleccion(container:Element){
+    //window.location.reload();
     if(container.className.includes(' correct')){
       this.setStyleCA(container);
       this.renderer2.addClass(this.fb, 'right');

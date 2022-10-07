@@ -7,11 +7,12 @@
       </div>
       <img src="" alt="Question image" class="q-image">
     </div>
-    <app-text-answer class="txt-answers"></app-text-answer>
-    <app-img-answer class="txt-img"></app-img-answer>
+    <app-text-answer [questions]="questionList" [answers]="answers" class="txt-answers" id="txt-answers"></app-text-answer>
+    <app-img-answer [questions]="questionList" [answers]="answers" class="txt-img" id="txt-img"></app-img-answer>
   </section>
 </div>
 <div id="feedback" class="feedback">
   <span id="fbtxt">Oops! Respuesta incorrecta</span>
 </div>
+
 
