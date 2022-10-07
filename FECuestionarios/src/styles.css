@@ -2,6 +2,8 @@
   font-family: sans-serif;
   --darkblue: #03071E;
   --blended-db: rgba(26, 30, 53, 0.9);
+  --right: #57cc99;
+  --wrong: #ff4d6d;
   --blended-w: 0 0 5px rgba(155,155,155,0.7),
   0 0 10px rgba(155,155,155,0.8),
   0 0 20px rgba(155,155,155,0.9),

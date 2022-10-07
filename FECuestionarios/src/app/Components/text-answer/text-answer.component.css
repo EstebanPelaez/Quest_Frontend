@@ -16,6 +16,7 @@
   align-items: center;
   background-color: var(--darkblue);
   border: 6px solid white;
+  border-radius: 5px;
   color: white;
   font-size: 24px;
 }

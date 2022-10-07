@@ -25,6 +25,7 @@
   flex-direction: column;
   background-color: var(--darkblue);
   border: 6px solid white;
+  border-radius: 5px;
   padding: 30px;
 }
 
