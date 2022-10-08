@@ -1,1 +1,26 @@
-<p>results works!</p>
+<div class=results-container xmlns:p="http://www.w3.org/1999/html">
+  <section class="r-container">
+    <table >
+      <thead>
+      <tr>
+        <p class="title">Resultados</p>
+        <th scope="col"></th>
+        <th scope="col"></th>
+      </tr>
+      </thead>
+      <tbody  class="scroll-container">
+        <tr *ngFor="let pregunta ; index as i">
+          <section class="r-containerResult">
+            <div class="r-columnTable">
+              <th scope="raw" class="r-text">{{i+1+". "+pregunta.texto}}</th>
+            </div>
+            <div class="r-columnTable" >
+             <td class="r-container-result-correct">{{pregunta.respuestaCorrecta}}</td>
+             <p class="r-container-result-wrong" *ngIf="!pregunta.isCorrecta">{{pregunta.respuestaIncorrecta}}</p>
+            </div>
+          </section>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+</div>
