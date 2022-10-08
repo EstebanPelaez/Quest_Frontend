@@ -8,10 +8,11 @@ import {map} from "rxjs";
   styleUrls: ['./question.component.css']
 })
 export class QuestionComponent implements OnInit {
-  answers:any = [];
-  questionList:any = [];
 
-  constructor(private questionService:QuestionService, private renderer2: Renderer2) { }
+  answers:any = [];
+  question:any;
+
+  constructor(private questionService:QuestionService, private renderer2: Renderer2) {  }
 
   ngOnInit(): void {
     this.toListQuestion();
@@ -22,29 +23,35 @@ export class QuestionComponent implements OnInit {
   toListQuestion(){
     this.questionService.getPreguntas().subscribe({
       next:(result:any) => {
-        this.questionList = result;
+        let index = sessionStorage.getItem('questionNumber')
+        for (let i = 0; i <result.length ; i++) {
+          if(result[i].id == index){
+          this.question = result[i];
+          }
+        }
       },
       error:(err:any)=>console.log(err)
     });
   }
 
   toListAnswers(){
-    this.questionService.getRespuestas().subscribe((result: any) => {
-      this.questionList = result;
-      localStorage.setItem('questions', result);
-    });
-    console.log(localStorage.getItem('questions'));
-    /*this.questionService.getRespuestas().subscribe({
-      next:(result:any) => {
-        this.answers = result;
-        this.setAnsComp();
+    this.questionService.getRespuestas().subscribe({
+      next: (result:any) =>{
+        let index = sessionStorage.getItem('questionNumber');
+        for (let i = 0; i <result.length ; i++) {
+          if(result[i].pregunta.id == index){
+            console.log(result[i])
+            this.answers.push(result[i]);
+          }
+        }
+        console.log(this.answers)
       },
       error:(err:any)=>console.log(err)
-    })*/
+    });
   }
 
   setAnsComp(){
-    let index = parseInt(localStorage.getItem('questionNumber')!);
+    let index = parseInt(sessionStorage.getItem('questionNumber')!);
     this.renderer2.setStyle(document.getElementById('txt-img'), 'display', 'none');
     this.renderer2.setStyle(document.getElementById('txt-answers'), 'display', 'block');
     for (let i = 0; i <this.answers.length; i++) {
@@ -52,7 +59,12 @@ export class QuestionComponent implements OnInit {
         this.renderer2.setStyle(document.getElementById('txt-img'), 'display', 'block');
         this.renderer2.setStyle(document.getElementById('txt-answers'), 'display', 'none');
         break;
+
       }
     }
+  }
+
+  reload(){
+    window.location.reload();
   }
 }

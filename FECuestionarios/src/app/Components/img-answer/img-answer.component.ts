@@ -14,6 +14,7 @@ export class ImgAnswerComponent implements OnInit {
   fb: Element | undefined;
   @Input() questions: string[] | undefined;
   @Input() answers: string[] | undefined;
+
   ngOnInit(): void {
     this.isDisabled = false;
     this.fb = document.getElementById('feedback')!;

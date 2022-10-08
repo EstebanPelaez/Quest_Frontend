@@ -9,7 +9,8 @@ export class AppComponent {
   title = 'FECuestionarios';
 
   constructor() {
-    localStorage.setItem('ip', 'localhost:8080');
-    localStorage.setItem('questionNumber', '0');
+    sessionStorage.setItem('ip', 'localhost:8080');
+    sessionStorage.setItem('questionNumber', '1')
+    console.log(sessionStorage.getItem('questionNumber'));
   }
 }

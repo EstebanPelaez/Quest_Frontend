@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
+import {Observable} from "rxjs";
 @Injectable({
   providedIn: 'root'
 })
@@ -16,7 +17,6 @@ export class QuestionService {
   }
 
   getRespuestas(){
-    this.answers = this.http.get(this.urlA);
-    return this.answers;
+    return this.http.get(this.urlA);
   }
 }

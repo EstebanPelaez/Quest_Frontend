@@ -1,7 +1,6 @@
 export interface AnswerModule {
-  id:string;
-  imagen:string;
-  is_correcta:string;
+  idRespuesta:string;
+  idPregunta:string;
   texto:string;
-  pregunta_id:string;
+  isCorrecta:string;
 }

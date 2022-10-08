@@ -1,26 +1,26 @@
 <div class="answers">
-  <div class="ans-container" id="ansA" [ngClass]="{isDisabled}" #ansConta (click)="verSeleccion(ansConta)">
+  <div class="ans-container {{answers[0].correcta}}" id="ansA" [ngClass]="{isDisabled}" #ansConta (click)="verSeleccion(ansConta)">
     <p class="letter"> A </p>
     <div class="txt-answer">
-      <p class="answer">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation</p>
+      <p class="answer">{{answers[0].texto}}</p>
     </div>
     </div>
-  <div class="ans-container" id="ansB" [ngClass]="{isDisabled}" #ansContb (click)="verSeleccion(ansContb)">
+  <div class="ans-container {{answers[1].correcta}}" id="ansB" [ngClass]="{isDisabled}" #ansContb (click)="verSeleccion(ansContb)">
     <p class="letter"> B </p>
     <div class="txt-answer">
-      <p class="answer">No se xd</p>
+      <p class="answer">{{answers[1].texto}}</p>
     </div>
   </div>
-  <div class="ans-container" id="ansC" [ngClass]="{isDisabled}" #ansContc (click)="verSeleccion(ansContc)">
+  <div class="ans-container {{answers[2].correcta}}" id="ansC" [ngClass]="{isDisabled}" #ansContc (click)="verSeleccion(ansContc)">
     <p class="letter"> C </p>
     <div class="txt-answer">
-      <p class="answer">No se xd</p>
+      <p class="answer">{{answers[2].texto}}</p>
     </div>
   </div>
-  <div class="ans-container" id="ansD" [ngClass]="{isDisabled}" #ansContd (click)="verSeleccion(ansContd)">
+  <div class="ans-container {{answers[3].correcta}}" id="ansD" [ngClass]="{isDisabled}" #ansContd (click)="verSeleccion(ansContd)">
     <p class="letter"> D </p>
     <div class="txt-answer">
-      <p class="answer">No se xd</p>
+      <p class="answer">{{answers[3].texto}}</p>
     </div>
   </div>
 </div>

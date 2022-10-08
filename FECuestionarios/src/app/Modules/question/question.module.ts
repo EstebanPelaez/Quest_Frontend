@@ -1,8 +1,8 @@
 export interface QuestionModule {
   id:string;
-  enunciado:string;
+  texto:string;
+  isCorrecta:string;
   imagen:string;
-  nivel_dificultad:string;
-  retroalimentacion:string;
-  tipo_pregunta_numero:string;
+  pregunta:string;
+  respuestas:string;
 }
