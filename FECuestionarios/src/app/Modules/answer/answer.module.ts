@@ -1,6 +1,6 @@
 export interface AnswerModule {
-  idRespuesta:string;
+  idTest:string;
   idPregunta:string;
-  texto:string;
-  isCorrecta:string;
+  idOpcion:string;
+  tiempo:string;
 }

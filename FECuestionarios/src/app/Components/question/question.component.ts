@@ -11,8 +11,12 @@ export class QuestionComponent implements OnInit {
 
   answers:any = [];
   question:any;
+  questionNumber:string;
 
-  constructor(private questionService:QuestionService, private renderer2: Renderer2) {  }
+
+  constructor(private questionService:QuestionService, private renderer2: Renderer2) {
+    this.questionNumber = sessionStorage.getItem('questionNumber')!;
+  }
 
   ngOnInit(): void {
     this.toListQuestion();
@@ -40,11 +44,10 @@ export class QuestionComponent implements OnInit {
         let index = sessionStorage.getItem('questionNumber');
         for (let i = 0; i <result.length ; i++) {
           if(result[i].pregunta.id == index){
-            console.log(result[i])
             this.answers.push(result[i]);
+            this.setAnsComp();
           }
         }
-        console.log(this.answers)
       },
       error:(err:any)=>console.log(err)
     });

@@ -1,11 +1,11 @@
 <div class="container">
   <section class="q-container">
-    <div class="question">
-      <div class="q-text">
-        <p class="title">Pregunta <span>{{question.id}}</span></p>
+    <div class="question" id="question">
+      <div class="q-text" id="{{question.id}}">
+        <p class="title">Pregunta <span>{{questionNumber}}</span></p>
         <p class="q-content">{{question.enunciado}}</p>
       </div>
-      <img src="" alt="Question image" class="q-image">
+      <img src="{{question.imagen}}" alt="Question image" class="q-image">
     </div>
     <app-text-answer (messageEvent)="reload()"  [questions]="question" [answers]="answers" class="txt-answers" id="txt-answers"></app-text-answer>
     <app-img-answer [questions]="question" [answers]="answers" class="txt-img" id="txt-img"></app-img-answer>

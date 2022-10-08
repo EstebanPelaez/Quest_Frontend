@@ -1,5 +1,7 @@
 import {Component, EventEmitter, Input, OnInit, Output, Renderer2} from '@angular/core';
 import {QuestionComponent} from "../question/question.component";
+import {AnswerModule} from "../../Modules/answer/answer.module";
+import {QuestionService} from "../../Services/questionService/question.service";
 
 @Component({
   selector: 'app-text-answer',
@@ -10,6 +12,10 @@ export class TextAnswerComponent implements OnInit {
 
   isDisabled: boolean = false;
   fb!: Element;
+  respuesta:AnswerModule = {idOpcion:'', idTest:'', idPregunta:'', tiempo:''};
+
+  start:any;
+  end:any;
 
   @Input()
   questions!: any[];
@@ -19,12 +25,13 @@ export class TextAnswerComponent implements OnInit {
   @Output()
   messageEvent = new EventEmitter<string>();
 
-  constructor(private renderer2: Renderer2) { }
+  constructor(private renderer2: Renderer2, private questionService:QuestionService) {
+  }
 
   ngOnInit(): void {
     this.isDisabled = false;
     this.fb = document.getElementById('feedback')!;
-    let elements = document.getElementsByClassName('ans-container');
+    this.start = window.performance.now();
   }
 
   verSeleccion(container:Element){
@@ -42,8 +49,8 @@ export class TextAnswerComponent implements OnInit {
     }
     this.isDisabled = true;
     this.renderer2.setStyle(container, 'disabled', 'true');
+    this.saveAnswer(container);
     setTimeout(()=> this.reload(), 5000);
-    setInterval(()=>this.loadBar(), 500);
   }
 
   setStyleCA(container:Element){
@@ -66,7 +73,13 @@ export class TextAnswerComponent implements OnInit {
     this.messageEvent.emit('reload');
   }
 
-  loadBar(){
-    let bar = document.getElementById('feedback')!;
+  saveAnswer(container:Element){
+    this.end = window.performance.now();
+    let time = Math.round((this.end-this.start)/1000);
+    this.respuesta.idTest = '1';
+    this.respuesta.idOpcion = container.id;
+    this.respuesta.idPregunta = document.getElementsByClassName('q-text')[0].id;
+    this.respuesta.tiempo = time+'';
+    this.questionService.saveRespuesta(this.respuesta);
   }
 }

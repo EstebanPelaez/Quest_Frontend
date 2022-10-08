@@ -1,16 +1,16 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
+import {AnswerModule} from "../../Modules/answer/answer.module";
 @Injectable({
   providedIn: 'root'
 })
 export class QuestionService {
   urlQ = 'http://'+localStorage.getItem('ip')+'/api/preguntas';
   urlA = 'http://'+localStorage.getItem('ip')+'/api/opciones';
-  questions:any;
-  answers:any;
+  urlR = 'http://'+localStorage.getItem('ip')+'/api/respuestas';
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private http2: HttpClient) {  }
 
   getPreguntas(){
     return this.http.get(this.urlQ);
@@ -18,5 +18,10 @@ export class QuestionService {
 
   getRespuestas(){
     return this.http.get(this.urlA);
+  }
+
+  saveRespuesta(answer:AnswerModule){
+    let cadena = 'http://localhost:8080/api/preguntas/'+answer.idTest+'/'+answer.idPregunta+'/'+answer.idOpcion+'/'+answer.tiempo;
+    //this.http2.post('http://localhost:8080/api/respuestas/1/1/2/21', '');
   }
 }
