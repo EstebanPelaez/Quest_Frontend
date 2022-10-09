@@ -21,7 +21,10 @@ export class QuestionService {
   }
 
   saveRespuesta(answer:AnswerModule){
-    let cadena = 'http://localhost:8080/api/preguntas/'+answer.idTest+'/'+answer.idPregunta+'/'+answer.idOpcion+'/'+answer.tiempo;
-    //this.http2.post('http://localhost:8080/api/respuestas/1/1/2/21', '');
+    let cadena = this.urlR+'/'+answer.idTest+'/'+answer.idPregunta+'/'+answer.idOpcion+'/'+answer.tiempo;
+    this.http2.post(cadena, '').subscribe({next: () =>{
+      },
+      error:(err:any)=>console.log(err)
+    });
   }
 }

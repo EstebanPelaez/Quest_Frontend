@@ -1,5 +1,7 @@
 import {Component, EventEmitter, Input, OnInit, Output, Renderer2} from '@angular/core';
 import {Router} from "@angular/router";
+import {AnswerModule} from "../../Modules/answer/answer.module";
+import {QuestionService} from "../../Services/questionService/question.service";
 
 @Component({
   selector: 'app-img-answer',
@@ -19,11 +21,17 @@ export class ImgAnswerComponent implements OnInit {
   @Output()
   messageEvent = new EventEmitter<string>();
 
-  constructor(private renderer2: Renderer2, private router:Router) { }
+  respuesta:AnswerModule = {idOpcion:'', idTest:'', idPregunta:'', tiempo:''};
+
+  start:any;
+  end:any;
+
+  constructor(private renderer2: Renderer2, private questionService:QuestionService) { }
 
   ngOnInit(): void {
     this.isDisabled = false;
     this.fb = document.getElementById('feedback')!;
+    this.start = window.performance.now();
   }
 
   verSeleccion(container:Element){
@@ -34,13 +42,15 @@ export class ImgAnswerComponent implements OnInit {
       document.getElementById('fbtxt')!.textContent = '¡Muy bien! tu respuesta es correcta';
     }else{
       this.setStyleWA(container);
-      this.setStyleCA(document.getElementsByClassName('true').item(0)!);
+      console.log(document.getElementsByClassName('imgtrue').item(0));
+      this.setStyleCA(document.getElementsByClassName('imgtrue').item(0)!);
       this.renderer2.addClass(this.fb, 'wrong');
       this.renderer2.setStyle(this.fb, 'display', 'block');
       document.getElementById('fbtxt')!.textContent = '¡Oops! respuesta incorrecta';
     }
     this.isDisabled = true;
     this.renderer2.setStyle(container, 'disabled', 'true');
+    this.saveAnswer(container);
     setTimeout(()=> this.reload(), 5000);
   }
 
@@ -61,7 +71,17 @@ export class ImgAnswerComponent implements OnInit {
   reload(){
     let index = parseInt(sessionStorage.getItem('questionNumber')!)+1;
     sessionStorage.setItem('questionNumber', ''+index);
-    this.messageEvent.emit('reload');
+    //this.messageEvent.emit('reload');
+  }
+
+  saveAnswer(container:Element){
+    this.end = window.performance.now();
+    let time = Math.round((this.end-this.start)/1000);
+    this.respuesta.idTest = '1';
+    this.respuesta.idOpcion = container.id;
+    this.respuesta.idPregunta = document.getElementsByClassName('q-text')[0].id;
+    this.respuesta.tiempo = time+'';
+    this.questionService.saveRespuesta(this.respuesta);
   }
 
 }

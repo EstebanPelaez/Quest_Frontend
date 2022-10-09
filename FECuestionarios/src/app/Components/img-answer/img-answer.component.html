@@ -1,23 +1,23 @@
 <div id="imgAns" class="img-answers">
-  <div [ngClass]="{isDisabled}" #imgAnsConta class="img-ans-container {{answers[0].correcta}}" id="ansA" (click)="verSeleccion(imgAnsConta)">
+  <div [ngClass]="{isDisabled}" #imgAnsConta class="img-ans-container img{{answers[0].correcta}}" id="{{answers[0].id}}" (click)="verSeleccion(imgAnsConta)">
     <p class="letter"> A </p>
     <div class="img-container">
       <img src="{{answers[0].imagen}}" class="q-img">
     </div>
   </div>
-  <div [ngClass]="{isDisabled}" #imgAnsContb class="img-ans-container {{answers[1].correcta}}" id="ansB" (click)="verSeleccion(imgAnsContb)">
+  <div [ngClass]="{isDisabled}" #imgAnsContb class="img-ans-container img{{answers[1].correcta}}" id="{{answers[1].id}}" (click)="verSeleccion(imgAnsContb)">
     <p class="letter"> B </p>
     <div class="img-container">
     <img src="{{answers[1].imagen}}" class="q-img">
     </div>
   </div>
-  <div [ngClass]="{isDisabled}" #imgAnsContc  class="img-ans-container {{answers[2].correcta}}" id="ansC" (click)="verSeleccion(imgAnsContc)">
+  <div [ngClass]="{isDisabled}" #imgAnsContc  class="img-ans-container img{{answers[2].correcta}}" id="{{answers[2].id}}" (click)="verSeleccion(imgAnsContc)">
     <p class="letter"> C </p>
     <div class="img-container">
     <img src="{{answers[2].imagen}}" class="q-img">
     </div>
   </div>
-  <div [ngClass]="{isDisabled}" #imgAnsContd class="img-ans-container {{answers[3].correcta}}" id="ansD" (click)="verSeleccion(imgAnsContd)">
+  <div [ngClass]="{isDisabled}" #imgAnsContd class="img-ans-container img{{answers[3].correcta}}" id="{{answers[3].id}}" (click)="verSeleccion(imgAnsContd)">
     <p class="letter"> D </p>
     <div class="img-container">
     <img src="{{answers[3].imagen}}" class="q-img">

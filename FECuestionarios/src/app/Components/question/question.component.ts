@@ -1,6 +1,7 @@
 import {Component, OnInit, Renderer2, ViewChild} from '@angular/core';
 import {QuestionService} from "../../Services/questionService/question.service";
 import {map} from "rxjs";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-question',
@@ -14,8 +15,11 @@ export class QuestionComponent implements OnInit {
   questionNumber:string;
 
 
-  constructor(private questionService:QuestionService, private renderer2: Renderer2) {
+  constructor(private questionService:QuestionService, private renderer2: Renderer2, private router:Router) {
     this.questionNumber = sessionStorage.getItem('questionNumber')!;
+    if(this.questionNumber == '7'){
+      router.navigate(['/results']);
+    }
   }
 
   ngOnInit(): void {
