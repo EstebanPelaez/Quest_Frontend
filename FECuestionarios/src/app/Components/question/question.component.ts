@@ -1,6 +1,7 @@
 import {Component, OnInit, Renderer2, ViewChild} from '@angular/core';
 import {QuestionService} from "../../Services/questionService/question.service";
 import {map} from "rxjs";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-question',
@@ -13,9 +14,11 @@ export class QuestionComponent implements OnInit {
   question:any;
   questionNumber:string;
 
-
-  constructor(private questionService:QuestionService, private renderer2: Renderer2) {
-    this.questionNumber = sessionStorage.getItem('questionNumber')!;
+  constructor(private questionService:QuestionService, private renderer2: Renderer2, private router:Router) {
+    this.questionNumber = localStorage.getItem('questionNumber')!;
+    if(this.questionNumber == '7'){
+      router.navigate(['/results']);
+    }
   }
 
   ngOnInit(): void {
@@ -27,7 +30,7 @@ export class QuestionComponent implements OnInit {
   toListQuestion(){
     this.questionService.getPreguntas().subscribe({
       next:(result:any) => {
-        let index = sessionStorage.getItem('questionNumber')
+        let index = localStorage.getItem('questionNumber')
         for (let i = 0; i <result.length ; i++) {
           if(result[i].id == index){
           this.question = result[i];
@@ -41,7 +44,7 @@ export class QuestionComponent implements OnInit {
   toListAnswers(){
     this.questionService.getRespuestas().subscribe({
       next: (result:any) =>{
-        let index = sessionStorage.getItem('questionNumber');
+        let index = localStorage.getItem('questionNumber');
         for (let i = 0; i <result.length ; i++) {
           if(result[i].pregunta.id == index){
             this.answers.push(result[i]);
@@ -54,7 +57,7 @@ export class QuestionComponent implements OnInit {
   }
 
   setAnsComp(){
-    let index = parseInt(sessionStorage.getItem('questionNumber')!);
+    let index = parseInt(localStorage.getItem('questionNumber')!);
     this.renderer2.setStyle(document.getElementById('txt-img'), 'display', 'none');
     this.renderer2.setStyle(document.getElementById('txt-answers'), 'display', 'block');
     for (let i = 0; i <this.answers.length; i++) {

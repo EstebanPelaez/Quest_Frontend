@@ -6,9 +6,9 @@ import {AnswerModule} from "../../Modules/answer/answer.module";
   providedIn: 'root'
 })
 export class QuestionService {
-  urlQ = 'http://'+localStorage.getItem('ip')+'/api/preguntas';
-  urlA = 'http://'+localStorage.getItem('ip')+'/api/opciones';
-  urlR = 'http://'+localStorage.getItem('ip')+'/api/respuestas';
+  urlQ = 'http://'+sessionStorage.getItem('ip')+'/api/preguntas';
+  urlA = 'http://'+sessionStorage.getItem('ip')+'/api/opciones';
+  urlR = 'http://'+sessionStorage.getItem('ip')+'/api/respuestas';
 
   constructor(private http: HttpClient, private http2: HttpClient) {  }
 
@@ -21,7 +21,10 @@ export class QuestionService {
   }
 
   saveRespuesta(answer:AnswerModule){
-    let cadena = 'http://localhost:8080/api/preguntas/'+answer.idTest+'/'+answer.idPregunta+'/'+answer.idOpcion+'/'+answer.tiempo;
-    //this.http2.post('http://localhost:8080/api/respuestas/1/1/2/21', '');
+    let cadena = this.urlR+'/'+answer.idTest+'/'+answer.idPregunta+'/'+answer.idOpcion+'/'+answer.tiempo;
+    this.http2.post(cadena, '').subscribe({next: () =>{
+      },
+      error:(err:any)=>console.log(err)
+    });
   }
 }

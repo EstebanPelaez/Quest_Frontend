@@ -5,14 +5,14 @@
         <p class="title">Pregunta <span>{{questionNumber}}</span></p>
         <p class="q-content">{{question.enunciado}}</p>
       </div>
-      <img src="{{question.imagen}}" alt="Question image" class="q-image">
+      <div class="container-i">
+        <img src="{{question.imagen}}" alt="Question image" class="q-image">
+      </div>
     </div>
-    <app-text-answer (messageEvent)="reload()"  [questions]="question" [answers]="answers" class="txt-answers" id="txt-answers"></app-text-answer>
-    <app-img-answer [questions]="question" [answers]="answers" class="txt-img" id="txt-img"></app-img-answer>
+    <app-text-answer (messageEvent)="reload()" [questions]="question" [answers]="answers" class="txt-answers" id="txt-answers"></app-text-answer>
+    <app-img-answer (messageEvent)="reload()" [questions]="question" [answers]="answers" class="txt-img" id="txt-img"></app-img-answer>
   </section>
 </div>
 <div id="feedback" class="feedback">
   <span id="fbtxt">Oops! Respuesta incorrecta</span>
 </div>
-
-

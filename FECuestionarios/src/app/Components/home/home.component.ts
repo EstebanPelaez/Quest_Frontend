@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from "@angular/router";
+import { UserModule } from 'src/app/Modules/user/user/user.module';
+import { TestService } from 'src/app/Services/test.service';
+import { UserService } from 'src/app/Services/user.service';
 
 @Component({
   selector: 'app-home',
@@ -7,7 +11,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  user:UserModule = {documento:'',nombre:'',tipousuario:'',listaTest:''};
+
+  constructor(public router: Router, private userService:UserService, private testService:TestService) { 
+
+    localStorage.setItem('questionNumber','1')
+  }
+
+  async iniciar(nombre:string){
+    try{
+        this.user.nombre=nombre;
+        this.user.tipousuario='1';
+        this.userService.saveUsuario(this.user)
+        let idT = this.testService.getIdTest(nombre)
+        localStorage.setItem('idTest', idT+"" )
+        await this.router.navigateByUrl('question');
+    }catch(e: any){
+      alert("Ingrese su código correctamente")
+    }
+  }
 
   ngOnInit(): void {
   }

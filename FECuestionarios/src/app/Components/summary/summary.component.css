@@ -1,0 +1,95 @@
+.summary-container{
+  display: flex;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: url("https://media.discordapp.net/attachments/751549067016011867/1026691811617550378/fondo_3.png?width=1344&height=662") no-repeat;
+  background-size: cover;
+}
+
+.s-container{
+  margin: auto;
+  text-align: center;
+}
+.title{
+  margin: 10px;
+  color: #FFFFFF;
+  font-size: 36px;
+  font-weight: bolder;
+  font-family: sans-serif;
+  text-shadow: 0 0 5px rgba(0,178,255,1);
+}
+.s-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 90vh;
+  width: 75vw;
+  margin: 20px auto;
+  padding:0;
+  border: 8px solid white;
+  border-radius: 5px;
+  background-color: rgba(26, 30, 53, 0.9);
+}
+
+.s-containerResult{
+  display: flex;
+  justify-content: space-between;
+  border-radius: 10px;
+  height: 100%;
+  width: 68vw;
+  margin: 10px auto;
+  padding:5px;
+  border: 2px solid white;
+  background-color: rgba(26, 30, 53, 0.9);
+}
+
+.s-text{
+  padding: 20px;
+  margin: 10px;
+  color: #FFFFFF;
+  font-size: 18px;
+  font-weight: bolder;
+  font-family: sans-serif;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  overflow-y: scroll;
+  background: rgba(26, 30, 53, 0.9);
+  box-shadow: rgba(26, 30, 53, 0.9);
+}
+
+::-webkit-scrollbar-thumb {
+  background: grey;
+  border-radius: 10px;
+}
+
+.scroll-container {
+  display: block;
+  width: 98.5%;
+  height: 590px;
+  overflow-y: scroll;
+  margin: 0px;
+  padding: 10px;
+}
+
+.move-container {
+  position: relative;
+  top: 0;
+  transition: top ease 0.8s;
+  display: flex;
+  justify-content: space-between;
+  border-radius: 10px;
+  height: 100%;
+  width: 68vw;
+  margin: 7px;
+  padding:5px;
+  padding-left: 30px;
+  border: 2px solid white;
+  background-color: rgba(26, 30, 53, 0.9);
+}
+.move-container:hover{
+  top: -20px;
+}
+
