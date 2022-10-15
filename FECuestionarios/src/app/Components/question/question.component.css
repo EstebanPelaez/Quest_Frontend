@@ -75,7 +75,6 @@ img{
   padding: 50px;
   padding-bottom: 60px;
 }
-
 .feedback{
   display: none;
   position: absolute;
@@ -112,4 +111,18 @@ img{
 
 .wrong{
   background-color: var(--wrong);
+}
+.q-image{
+  display: flex;
+  justify-content: space-around;
+  width: 440px;
+  height: 440px;
+  align-items: center;
+  flex-direction: column;
+  background-color: var(--darkblue);
+}
+.container-i{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
