@@ -35,7 +35,8 @@ export class ImgAnswerComponent implements OnInit {
   }
 
   verSeleccion(container:Element){
-    if(container.className.includes(' true')){
+
+    if(container.className.includes('true')){
       this.setStyleCA(container);
       this.renderer2.addClass(this.fb, 'right');
       this.renderer2.setStyle(this.fb, 'display', 'block');
@@ -50,7 +51,7 @@ export class ImgAnswerComponent implements OnInit {
     }
     this.isDisabled = true;
     this.renderer2.setStyle(container, 'disabled', 'true');
-    this.saveAnswer(container);
+    this.saveAnswer(container);    
     setTimeout(()=> this.reload(), 5000);
   }
 
@@ -69,9 +70,9 @@ export class ImgAnswerComponent implements OnInit {
   }
 
   reload(){
-    let index = parseInt(sessionStorage.getItem('questionNumber')!)+1;
-    sessionStorage.setItem('questionNumber', ''+index);
-    //this.messageEvent.emit('reload');
+    let index = parseInt(localStorage.getItem('questionNumber')!)+1;
+    localStorage.setItem('questionNumber', ''+index);
+    this.messageEvent.emit('reload');
   }
 
   saveAnswer(container:Element){

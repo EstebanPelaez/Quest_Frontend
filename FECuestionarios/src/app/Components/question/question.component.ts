@@ -15,7 +15,7 @@ export class QuestionComponent implements OnInit {
   questionNumber:string;
 
   constructor(private questionService:QuestionService, private renderer2: Renderer2, private router:Router) {
-    this.questionNumber = sessionStorage.getItem('questionNumber')!;
+    this.questionNumber = localStorage.getItem('questionNumber')!;
     if(this.questionNumber == '7'){
       router.navigate(['/results']);
     }
@@ -30,7 +30,7 @@ export class QuestionComponent implements OnInit {
   toListQuestion(){
     this.questionService.getPreguntas().subscribe({
       next:(result:any) => {
-        let index = sessionStorage.getItem('questionNumber')
+        let index = localStorage.getItem('questionNumber')
         for (let i = 0; i <result.length ; i++) {
           if(result[i].id == index){
           this.question = result[i];
@@ -44,7 +44,7 @@ export class QuestionComponent implements OnInit {
   toListAnswers(){
     this.questionService.getRespuestas().subscribe({
       next: (result:any) =>{
-        let index = sessionStorage.getItem('questionNumber');
+        let index = localStorage.getItem('questionNumber');
         for (let i = 0; i <result.length ; i++) {
           if(result[i].pregunta.id == index){
             this.answers.push(result[i]);
@@ -57,7 +57,7 @@ export class QuestionComponent implements OnInit {
   }
 
   setAnsComp(){
-    let index = parseInt(sessionStorage.getItem('questionNumber')!);
+    let index = parseInt(localStorage.getItem('questionNumber')!);
     this.renderer2.setStyle(document.getElementById('txt-img'), 'display', 'none');
     this.renderer2.setStyle(document.getElementById('txt-answers'), 'display', 'block');
     for (let i = 0; i <this.answers.length; i++) {

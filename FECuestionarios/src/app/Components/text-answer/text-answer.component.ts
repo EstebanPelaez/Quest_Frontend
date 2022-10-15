@@ -68,8 +68,8 @@ export class TextAnswerComponent implements OnInit {
   }
 
   reload(){
-    let index = parseInt(sessionStorage.getItem('questionNumber')!)+1;
-    sessionStorage.setItem('questionNumber', ''+index);
+    let index = parseInt(localStorage.getItem('questionNumber')!)+1;
+    localStorage.setItem('questionNumber', ''+index);
     this.messageEvent.emit('reload');
   }
 
