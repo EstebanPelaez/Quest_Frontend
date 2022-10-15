@@ -1,1 +1,26 @@
-<p>summary works!</p>
+<div class=summary-container xmlns:p="http://www.w3.org/1999/html">
+  <section class="s-container">
+    <table >
+      <thead>
+      <tr>
+        <p class="title">ScoreBoard</p>
+        <th scope="col"></th>
+        <th scope="col"></th>
+      </tr>
+      </thead>
+      <tbody  class="scroll-container">
+        <tr *ngFor = "let resultado ; index as i">
+           <section class="move-container">
+              <div class="r-columnTable">
+                <td class="s-text">{{resultado.nombre}}</td>
+              </div>
+              <div class="r-columnTable">
+                <td class="s-text">{{resultado.puntaje}}</td>
+              </div>
+            </section>
+        </tr>
+      </tbody>
+    </table>
+
+  </section>
+</div>

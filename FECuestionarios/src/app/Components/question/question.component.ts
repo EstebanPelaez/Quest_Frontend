@@ -14,7 +14,6 @@ export class QuestionComponent implements OnInit {
   question:any;
   questionNumber:string;
 
-
   constructor(private questionService:QuestionService, private renderer2: Renderer2, private router:Router) {
     this.questionNumber = sessionStorage.getItem('questionNumber')!;
     if(this.questionNumber == '7'){
