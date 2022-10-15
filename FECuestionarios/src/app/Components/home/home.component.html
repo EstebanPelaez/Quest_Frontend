@@ -2,8 +2,8 @@
   <section class="h-container">
     <p class="title">CUESTIONARIO</p>
     <div class="input-card">
-      <input type="text" class="input-text" id="username" placeholder="Nombre de usuario">
-      <button class="startButton">Empezar</button>
+      <input type="text" class="input-text" id="username" placeholder="Nombre de usuario" #nombre>
+      <button class="startButton" (click)="iniciar(nombre.value)">Empezar</button>
     </div>
   </section>
 </div>
