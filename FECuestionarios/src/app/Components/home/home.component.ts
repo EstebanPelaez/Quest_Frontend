@@ -21,9 +21,10 @@ export class HomeComponent implements OnInit {
   async iniciar(nombre:string){
     try{
         this.user.nombre=nombre;
-        this.user.tipousuario=this.testService.getIdTest();
+        this.user.tipousuario='1';
         this.userService.saveUsuario(this.user)
-        localStorage.setItem('idTest', '1') //Recibir el id del test
+        let idT = this.testService.getIdTest(nombre)
+        localStorage.setItem('idTest', idT+"" )
         await this.router.navigateByUrl('question');
     }catch(e: any){
       alert("Ingrese su código correctamente")

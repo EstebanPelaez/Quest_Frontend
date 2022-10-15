@@ -13,7 +13,7 @@ export class UserService {
 
   saveUsuario(user: UserModule) {
 
-    let cadena = this.urlU + '/' + user.nombre;
+    let cadena = this.urlU + '/' + user.nombre + '/' +user.tipousuario;
     this.http2.post(cadena, '').subscribe({
       next: () => {
       },
