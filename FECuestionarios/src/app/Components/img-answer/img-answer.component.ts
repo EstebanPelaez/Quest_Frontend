@@ -78,7 +78,8 @@ export class ImgAnswerComponent implements OnInit {
   saveAnswer(container:Element){
     this.end = window.performance.now();
     let time = Math.round((this.end-this.start)/1000);
-    this.respuesta.idTest = '1';
+    let id = parseInt(localStorage.getItem('idTest')!);
+    this.respuesta.idTest = id+'';
     this.respuesta.idOpcion = container.id;
     this.respuesta.idPregunta = document.getElementsByClassName('q-text')[0].id;
     this.respuesta.tiempo = time+'';
