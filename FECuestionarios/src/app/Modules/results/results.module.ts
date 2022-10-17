@@ -1,6 +1,9 @@
-export interface ResultsModule {
+import {AnswerModule} from "../answer/answer.module";
+import {QuestionModule} from "../question/question.module";
 
-  idOpcionCorrecta:string;
-  idOpcionMarcada:string;
-  idPregunta:string;
+export interface ResultModule{
+
+  opcionCorrecta:AnswerModule;
+  opcionMarcada:AnswerModule;
+  pregunta:QuestionModule;
 }

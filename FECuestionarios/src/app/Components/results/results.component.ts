@@ -1,6 +1,7 @@
 import { Component, OnInit} from '@angular/core';
 import { TestService} from "../../Services/test.service";
 import {Router} from "@angular/router";
+import {ResultModule} from "../../Modules/results/results.module";
 
 @Component({
   selector: 'app-results',
@@ -11,27 +12,39 @@ export class ResultsComponent implements OnInit {
 
   question:any;
   questionNumber:string;
+  preguntas:any = [];
+  respuestas:any = [];
+
+  public resultados:Array<any> = [
+
+  ]
 
   constructor( private testService:TestService, private router:Router) {
     this.questionNumber = localStorage.getItem('questionNumber')!;
   }
 
   ngOnInit(): void {
-    this.toListResults();
+    this.toListQuestions();
   }
 
-  toListResults(){
+  toListQuestions(){
     this.testService.getResultados().subscribe({
       next:(result:any) => {
-        let index = localStorage.getItem('idTest')
-        for(let i=0; i< result.length ; i++){
-          if(result[i].id == index){
-            this.question = result[i];
-          }
-        }
-      },
-      error:(err:any) => console.log(err)
+        this.preguntas = result;
+      }
     })
   }
-}
 
+  toListAnswers(){
+
+  }
+
+
+  async volver(){
+    try{
+      await this.router.navigateByUrl('home');
+    }catch(e: any){
+      alert("Ocurrió un error")
+    }
+  }
+}

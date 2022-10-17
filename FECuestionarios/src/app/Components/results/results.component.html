@@ -3,23 +3,36 @@
     <table >
       <thead>
       <tr>
-        <p class="title">Resultados</p>
-        <th scope="col"></th>
-        <th scope="col"></th>
+        <th scope="col" class="r-columnTableIcon">
+          <div class="homeButton" (click)="volver()"></div>
+        </th>
+        <th scope="col" class="r-columnTable">
+          <div class="title">Resultados</div>
+        </th>
       </tr>
       </thead>
       <tbody  class="scroll-container">
-        <tr *ngFor="let pregunta ; index as i">
-          <section class="r-containerResult">
-            <div class="r-columnTable">
-              <th scope="raw" class="r-text">{{i+1+". "+pregunta.texto}}</th>
+      <tr *ngFor="let pregunta of preguntas; index as i">
+        <section class="move-container">
+          <div class="r-columnTable">
+            <th scope="raw" class="r-text">{{i+1+". "+pregunta.enunciado}}</th>
+          </div>
+          <div class="r-columnTable" >
+            <div>
+              <td class="r-container-result-correct">
+                <div class="icon-correct"></div>
+                <div >{{pregunta.texto}}</div>
+              </td>
             </div>
-            <div class="r-columnTable" >
-             <td class="r-container-result-correct">{{pregunta.respuestaCorrecta}}</td>
-             <p class="r-container-result-wrong" *ngIf="!pregunta.isCorrecta">{{pregunta.respuestaIncorrecta}}</p>
+            <div>
+              <td class="r-container-result-wrong" *ngIf="!pregunta.correcta">
+                <div class="icon-incorrect"></div>
+                <div >{{pregunta.texto}}</div>
+              </td>
             </div>
-          </section>
-        </tr>
+          </div>
+        </section>
+      </tr>
       </tbody>
     </table>
   </section>
