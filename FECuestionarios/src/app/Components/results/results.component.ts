@@ -10,14 +10,8 @@ import {ResultModule} from "../../Modules/results/results.module";
 })
 export class ResultsComponent implements OnInit {
 
-  question:any;
   questionNumber:string;
-  preguntas:any = [];
   respuestas:any = [];
-
-  public resultados:Array<any> = [
-
-  ]
 
   constructor( private testService:TestService, private router:Router) {
     this.questionNumber = localStorage.getItem('questionNumber')!;
@@ -30,15 +24,12 @@ export class ResultsComponent implements OnInit {
   toListQuestions(){
     this.testService.getResultados().subscribe({
       next:(result:any) => {
-        this.preguntas = result;
+        for (let i = 0; i <result.length ; i++) {
+            this.respuestas.push(result[i]);
+        }
       }
     })
   }
-
-  toListAnswers(){
-
-  }
-
 
   async volver(){
     try{

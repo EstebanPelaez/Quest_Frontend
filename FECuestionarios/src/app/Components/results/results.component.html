@@ -12,22 +12,23 @@
       </tr>
       </thead>
       <tbody  class="scroll-container">
-      <tr *ngFor="let pregunta of preguntas; index as i">
+      <tr *ngFor="let pregunta of respuestas; index as i">
         <section class="move-container">
           <div class="r-columnTable">
-            <th scope="raw" class="r-text">{{i+1+". "+pregunta.enunciado}}</th>
+            <th scope="raw" class="r-text">{{i+1+". "+pregunta.pregunta.enunciado}}</th>
+            <img *ngIf="pregunta.pregunta.imagen!=null" src="{{pregunta.pregunta.imagen}}"  class="r-image">
           </div>
-          <div class="r-columnTable" >
-            <div>
-              <td class="r-container-result-correct">
-                <div class="icon-correct"></div>
-                <div >{{pregunta.texto}}</div>
-              </td>
+          <div class="r-columnTable">
+            <div class="r-container-result">
+              <p class="icon-correct"></p>
+              <div >{{pregunta.opcionCorrecta.texto}}</div>
+              <img *ngIf="pregunta.opcionCorrecta.imagen!=null" src="{{pregunta.opcionCorrecta.imagen}}" alt="Question image" class="r-question">
             </div>
-            <div>
-              <td class="r-container-result-wrong" *ngIf="!pregunta.correcta">
+             <div>
+              <td class="r-container-result" *ngIf="!pregunta.opcionMarcada.correcta">
                 <div class="icon-incorrect"></div>
-                <div >{{pregunta.texto}}</div>
+                <div >{{pregunta.opcionMarcada.texto}}</div>
+                <img *ngIf="pregunta.opcionMarcada.imagen!=null" src="{{pregunta.opcionMarcada.imagen}}" alt="Question image" class="r-question">
               </td>
             </div>
           </div>
