@@ -25,7 +25,6 @@
   height: 90vh;
   width: 75vw;
   margin: 20px auto;
-  padding:0;
   border: 8px solid white;
   border-radius: 5px;
   background-color: rgba(26, 30, 53, 0.9);
@@ -35,11 +34,12 @@
   justify-content: space-between;
   height: 100%;
   width: 68vw;
-  margin: 20px auto;
+  margin: 8px auto;
   padding:10px;
-  border: 5px solid white;
+  border: 3px solid white;
   border-radius: 5px;
   background-color: rgba(26, 30, 53, 0.9);
+
 }
 .q-container .question{
   width: 100%;
@@ -61,51 +61,59 @@
   color: #FFFFFF;
 }
 
-.r-container-result-correct{
+.icon-correct {
   background-image: url("https://cdn-icons-png.flaticon.com/512/390/390973.png");
   background-repeat: no-repeat;
-  background-position: 16px center;
-  background-size: 20px;
-  display: flex;
-  font-size: 16px;
-  color: #FFFFFF;
+  background-position: 100% center;
+  background-size: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  height: 100%;
-  width: 25vw;
-  margin: 10px auto;
+  height: 1%;
+  width: 1%;
+  margin: 4px auto;
   padding:2%;
-  border: 3px solid white;
-  border-radius: 5px;
-  background-color: rgba(26, 30, 53, 0.9);
+  float: left;
 }
-
-.r-container-result-wrong{
-
+.icon-incorrect{
   background-image: url("https://cdn-icons-png.flaticon.com/512/7698/7698976.png");
   background-repeat: no-repeat;
-  background-position: 16px center;
-  background-size: 20px;
+  background-position: 100% center;
+  background-size: 100%;
   display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 0.6%;
+  width: 0.6%;
+  margin: 4px auto;
+  padding:2%;
+}
+
+.r-container-result{
   font-size: 16px;
   color: #FFFFFF;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  align-items: center;
   height: 100%;
   width: 25vw;
   margin: 10px auto;
   padding:2%;
   border: 3px solid white;
-  border-radius: 5px;
+  border-radius: 9px;
   background-color: rgba(26, 30, 53, 0.9);
 }
 
 .r-columnTable{
-  float:right;
+  float:left;
   width: 50%;
   height: 100%;
+}
+.r-columnTableIcon{
+  float:left;
+  width: 17vw;
+  height: 2vw;
 }
 .r-text{
   padding: 20px;
@@ -124,17 +132,16 @@
 
 ::-webkit-scrollbar-thumb {
   background: grey;
-  border-radius: 10px;
+  border-radius: 110px;
 }
 .scroll-container {
   display: block;
   width: 98.5%;
-  height: 590px;
+  height: 78vh;
   overflow-y: scroll;
-  margin: 15px;
 }
 
-.input-icono {
+.input-icon {
   background-image: url("https://cdn-icons-png.flaticon.com/512/25/25404.png");
   background-repeat: no-repeat;
   background-position: 4px center;
@@ -147,12 +154,61 @@
   border: 1px solid rgba(9, 113, 163, 1);
   border-radius: 3px;
 }
-.input-icono input {
+.input-icon input {
   width: 100%;
   font-size: 0.9em;
   border: none;
 }
-.input-icono input:focus {
+.input-icon input:focus {
   outline: none;
 }
 
+.move-container {
+  position: relative;
+  top: 0;
+  transition: top ease 0.4s;
+  display: flex;
+  justify-content: space-between;
+  border-radius: 10px;
+  height: 100%;
+  width: 68vw;
+  margin: 7px;
+  padding:5px;
+  padding-left: 30px;
+  border: 3px solid white;
+  background-color: rgba(26, 30, 53, 0.9);
+}
+
+.move-container:hover{
+  top: -6px;
+}
+
+.homeButton{
+  background-image: url("https://media.discordapp.net/attachments/748287145080520806/1031346994440056912/icons8-casa-90.png");
+  background-repeat: no-repeat;
+  background-position: 50% center;
+  background-size: 50px;
+  height: 80px;
+  width: 100px;
+}
+
+.r-image{
+  justify-content: space-around;
+  width: 70%;
+  height: 70%;
+  background-color: var(--darkblue);
+}
+
+.r-question{
+  justify-content: space-around;
+  width: 40%;
+  height:40%;
+  background-color: var(--darkblue);
+  margin: 8px;
+  float:right;
+}
+#content {
+  display:block;
+  content:"";
+  clear:both;
+}
