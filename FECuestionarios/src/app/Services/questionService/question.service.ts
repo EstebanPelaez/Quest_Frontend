@@ -6,9 +6,9 @@ import {AnswerModule} from "../../Modules/answer/answer.module";
   providedIn: 'root'
 })
 export class QuestionService {
-  urlQ = 'http://'+sessionStorage.getItem('ip')+'/api/preguntas';
-  urlA = 'http://'+sessionStorage.getItem('ip')+'/api/opciones';
-  urlR = 'http://'+sessionStorage.getItem('ip')+'/api/respuestas';
+  urlQ = 'https://'+sessionStorage.getItem('ip')+'/api/preguntas';
+  urlA = 'https://'+sessionStorage.getItem('ip')+'/api/opciones';
+  urlR = 'https://'+sessionStorage.getItem('ip')+'/api/respuestas';
 
   constructor(private http: HttpClient, private http2: HttpClient) {  }
 
