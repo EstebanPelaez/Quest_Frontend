@@ -7,7 +7,7 @@ import { UserModule } from '../Modules/user/user/user.module';
 })
 export class UserService {
 
-  urlU = 'https://' + sessionStorage.getItem('ip') + '/api/usuario';
+  urlU = sessionStorage.getItem('ip')+ '/api/usuario';
 
   constructor(private http: HttpClient, private http2: HttpClient) { }
 
