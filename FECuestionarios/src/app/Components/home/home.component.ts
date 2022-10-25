@@ -13,7 +13,7 @@ export class HomeComponent implements OnInit {
 
   user:UserModule = {documento:'',nombre:'',tipousuario:'',listaTest:''};
 
-  constructor(public router: Router, private userService:UserService, private testService:TestService) { 
+  constructor(public router: Router, private userService:UserService, private testService:TestService) {
 
     localStorage.setItem('questionNumber','1')
   }
@@ -23,9 +23,10 @@ export class HomeComponent implements OnInit {
         this.user.nombre=nombre;
         this.user.tipousuario='1';
         this.userService.saveUsuario(this.user)
-        let idT = this.testService.getIdTest(nombre)
-        localStorage.setItem('idTest', idT+"" )
-        await this.router.navigateByUrl('question');
+        setTimeout(() => {
+          this.testService.getIdTest(nombre)
+         }, 3000);
+        this.router.navigateByUrl('question');
     }catch(e: any){
       alert("Ingrese su código correctamente")
     }
