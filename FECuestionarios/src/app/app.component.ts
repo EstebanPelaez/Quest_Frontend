@@ -9,7 +9,7 @@ export class AppComponent {
   title = 'FECuestionarios';
 
   constructor() {
-    sessionStorage.setItem('ip', 'backcuestionarios.herokuapp.com')
+    sessionStorage.setItem('ip', 'https://backcuestionarios.herokuapp.com')
     sessionStorage.setItem('questionNumber', '1')
   }
 }

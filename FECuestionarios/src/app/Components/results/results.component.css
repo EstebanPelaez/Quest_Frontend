@@ -62,29 +62,29 @@
 }
 
 .icon-correct {
-  background-image: url("https://cdn-icons-png.flaticon.com/512/390/390973.png");
+  background-image: url("https://cdn.discordapp.com/attachments/748287145080520806/1034319474943328267/Correcta.png");
   background-repeat: no-repeat;
   background-position: 100% center;
   background-size: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  height: 1%;
-  width: 1%;
+  height: 42%;
+  width:42%;
   margin: 4px auto;
   padding:2%;
   float: left;
 }
 .icon-incorrect{
-  background-image: url("https://cdn-icons-png.flaticon.com/512/7698/7698976.png");
+  background-image: url("https://cdn.discordapp.com/attachments/748287145080520806/1034318560916414504/dincorrect.png");
   background-repeat: no-repeat;
   background-position: 100% center;
   background-size: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  height: 0.6%;
-  width: 0.6%;
+  height: 42%;
+  width: 42%;
   margin: 4px auto;
   padding:2%;
 }

@@ -5,7 +5,6 @@
   height: 100%;
   background: url("https://media.discordapp.net/attachments/751549067016011867/1026691811617550378/fondo_3.png?width=1373&height=676") no-repeat;
   background-size: cover;
-
   }
 
 .q-container{
@@ -41,7 +40,7 @@
 .q-container .question .title, .q-content{
   width: 100%;
   margin: 0 15px 0 0;
-  font-size: 30px;
+  font-size: 1.5vw;
   font-weight: normal;
   color: #FFFFFF;
 }
@@ -60,6 +59,7 @@
 img{
   background-color: black;
   width: 100%;
+  height: 3vw;
 }
 
 .txt-answers{
@@ -71,9 +71,10 @@ img{
 
 .txt-img{
   display: none;
+  position: relative;
   height: 30%;
-  padding: 50px;
-  padding-bottom: 60px;
+
+  bottom: 0;
 }
 .feedback{
   display: none;
@@ -83,7 +84,7 @@ img{
   padding: 25px 0;
   bottom: 0;
   text-align: center;
-  font-size: 28px;
+  font-size: 1.5vw;
   overflow: hidden;
 }
 
@@ -123,6 +124,12 @@ img{
 }
 .container-i{
   display: flex;
+  height: 80%;
   align-items: center;
   flex-direction: column;
+}
+
+.container-i img{
+  width: 40%;
+  height: 100%;
 }

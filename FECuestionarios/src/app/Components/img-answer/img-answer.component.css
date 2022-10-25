@@ -7,11 +7,11 @@
 
 .img-answers .img-ans-container{
   display: flex;
+  height: 90%;
   flex-direction: column;
   position: relative;
   align-items: center;
   margin: 0 15px;
-  height: 100%;
   color: white;
   background-color: var(--darkblue);
   border: 6px solid white;
@@ -40,6 +40,8 @@
 }
 
 .img-answers .img-ans-container .img-container img{
+  width: 12vw;
+  height: 9vw;
   position: center;
 }
 

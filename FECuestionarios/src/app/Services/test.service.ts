@@ -5,8 +5,8 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class TestService {
-  urlT = 'https://'+sessionStorage.getItem('ip')+'/api/test';
-  urlResult = 'https://'+sessionStorage.getItem('ip')+'/api/test';
+  urlT = sessionStorage.getItem('ip')+'/api/test';
+  urlResult = sessionStorage.getItem('ip')+'/api/test/resultados';
 
   public idT:any
 
