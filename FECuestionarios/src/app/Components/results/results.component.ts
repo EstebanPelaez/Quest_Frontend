@@ -27,7 +27,8 @@ export class ResultsComponent implements OnInit {
         for (let i = 0; i <result.length ; i++) {
             this.respuestas.push(result[i]);
         }
-      }
+      },
+      error:(err:any)=>console.log(err)
     })
   }
 

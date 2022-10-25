@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 })
 export class TestService {
   urlT = 'https://'+sessionStorage.getItem('ip')+'/api/test';
-  urlResult = 'https://'+sessionStorage.getItem('ip')+'/api/test';
+  urlResult = 'http://'+sessionStorage.getItem('ip')+'/api/test/resultados';
 
   public idT:any
 
