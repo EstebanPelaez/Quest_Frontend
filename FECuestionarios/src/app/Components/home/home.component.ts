@@ -25,8 +25,9 @@ export class HomeComponent implements OnInit {
         this.userService.saveUsuario(this.user)
         setTimeout(() => {
           this.testService.getIdTest(nombre)
-         }, 3000);
-        this.router.navigateByUrl('question');
+          this.router.navigateByUrl('question');
+         }, 2000);
+        
     }catch(e: any){
       alert("Ingrese su código correctamente")
     }
