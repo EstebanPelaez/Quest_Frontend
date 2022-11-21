@@ -1,7 +1,7 @@
-import {Component, OnInit, Renderer2, ViewChild} from '@angular/core';
-import {QuestionService} from "../../Services/questionService/question.service";
-import {map} from "rxjs";
-import {Router} from "@angular/router";
+import { Component, OnInit, Renderer2, ViewChild } from '@angular/core';
+import { QuestionService } from "../../Services/questionService/question.service";
+import { map } from "rxjs";
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-question',
@@ -10,13 +10,13 @@ import {Router} from "@angular/router";
 })
 export class QuestionComponent implements OnInit {
 
-  answers:any = [];
-  question:any;
-  questionNumber:string;
+  answers: any = [];
+  question: any;
+  questionNumber: string;
 
-  constructor(private questionService:QuestionService, private renderer2: Renderer2, private router:Router) {
+  constructor(private questionService: QuestionService, private renderer2: Renderer2, private router: Router) {
     this.questionNumber = localStorage.getItem('questionNumber')!;
-    if(this.questionNumber == '7'){
+    if (this.questionNumber == '7') {
       router.navigate(['/results']);
     }
   }
@@ -24,44 +24,43 @@ export class QuestionComponent implements OnInit {
   ngOnInit(): void {
     this.toListQuestion();
     this.toListAnswers();
+    this.toSaveData();
   }
 
-
-  toListQuestion(){
-    this.questionService.getPreguntas().subscribe({
-      next:(result:any) => {
-        let index = localStorage.getItem('questionNumber')
-        for (let i = 0; i <result.length ; i++) {
-          if(result[i].id == index){
-          this.question = result[i];
-          }
-        }
-      },
-      error:(err:any)=>console.log(err)
+  toListQuestion() {
+    this.questionService.getPregunta().subscribe({
+      next: (result: any) => {
+        this.question = result;
+        localStorage.setItem('questionN',this.question.id)
+        localStorage.setItem('dificultad', this.question.nivelDificultad)
+      }
     });
   }
 
-  toListAnswers(){
+  toListAnswers() {
     this.questionService.getRespuestas().subscribe({
-      next: (result:any) =>{
-        let index = localStorage.getItem('questionNumber');
-        for (let i = 0; i <result.length ; i++) {
-          if(result[i].pregunta.id == index){
+      next: (result: any) => {
+        console.log(result)
+        let index = localStorage.getItem('questionN');
+        for (let i = 0; i < result.length; i++) {
+          if (result[i].pregunta.id == index) {
             this.answers.push(result[i]);
             this.setAnsComp();
           }
         }
       },
-      error:(err:any)=>console.log(err)
-    });
+        error: (err: any) => console.log(err)
+      });
   }
+  toSaveData(){
 
-  setAnsComp(){
-    let index = parseInt(localStorage.getItem('questionNumber')!);
+  }
+  setAnsComp() {
+    let index = parseInt(localStorage.getItem('questionN')!);
     this.renderer2.setStyle(document.getElementById('txt-img'), 'display', 'none');
     this.renderer2.setStyle(document.getElementById('txt-answers'), 'display', 'block');
-    for (let i = 0; i <this.answers.length; i++) {
-      if(this.answers[i].imagen !=null && this.answers[i].pregunta.id==index){
+    for (let i = 0; i < this.answers.length; i++) {
+      if (this.answers[i].imagen != null && this.answers[i].pregunta.id == index) {
         this.renderer2.setStyle(document.getElementById('txt-img'), 'display', 'block');
         this.renderer2.setStyle(document.getElementById('txt-answers'), 'display', 'none');
         break;
@@ -70,7 +69,7 @@ export class QuestionComponent implements OnInit {
     }
   }
 
-  reload(){
+  reload() {
     window.location.reload();
   }
 }

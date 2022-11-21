@@ -19,6 +19,7 @@ export class HomeComponent implements OnInit {
   }
 
   async iniciar(nombre:string){
+    this.reiniciarStorage()
     try{
         this.user.nombre=nombre;
         this.user.tipousuario='1';
@@ -32,7 +33,11 @@ export class HomeComponent implements OnInit {
       alert("Ingrese su código correctamente")
     }
   }
-
+  reiniciarStorage(){
+    localStorage.setItem('puntuacion', '0')
+    localStorage.setItem('dificultad', '0')
+    localStorage.setItem('ids', '0')
+  }
   ngOnInit(): void {
   }
 
