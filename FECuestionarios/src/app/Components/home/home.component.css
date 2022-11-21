@@ -1,53 +1,56 @@
 .main-container{
   display: flex;
-   position: absolute;
-   width: 100%;
-   height: 100%;
-   background: url("https://media.discordapp.net/attachments/751549067016011867/1026685142665810000/fondo.png") no-repeat;
-   background-size: cover;
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background: url("https://media.discordapp.net/attachments/748287145080520806/1042633898208796682/fondo_22.png?width=1377&height=676") no-repeat;
+  background-size: cover;
  }
 
 .h-container{
   margin: auto;
+  margin-top: 20vh;
+  width: 30%;
+  height: 35%;
   text-align: center;
+
 }
 
 .h-container .title{
+  width: 100%;
   margin-bottom: 20px;
-  color: #FFFFFF;
-  font-size: 36px;
-  font-weight: bolder;
-
 }
 
 .h-container .input-card{
   display: flex;
+  width: 80%;
+  height: 50%;
   flex-direction: column;
+  justify-content: space-between;
   background-color: var(--darkblue);
   border: 6px solid white;
   border-radius: 5px;
-  padding: 30px;
+  padding: 8%;
 }
 
 .h-container .input-card .input-text{
-  width: 15vw;
-  padding: 20px;
+  width: 100%;
+  height: 46%;
   background-color: var(--blended-db);
   border: none;
   color: white;
-  font-size: 18px;
+  font-size: 25px;
   text-align: center;
 }
 
 .h-container .input-card .startButton{
   transition: 100ms;
-  width: 17vw;
-  margin-top: 20px;
-  padding: 20px;
+  width: 100%;
+  height: 46%;
   background-color: white;
   border: 6px solid white;
   color: var(--darkblue);
-  font-size: 18px;
+  font-size: 25px;
 }
 
 .h-container .input-card .startButton:hover{
@@ -55,4 +58,18 @@
   background-color: var(--darkblue);
   border: 6px solid white;
   color: white;
+}
+
+@media screen and (max-width: 700px) {
+  .h-container {
+    width: 80%;
+  }
+
+  .h-container .input-card .input-text{
+    font-size: 20px;
+  }
+
+  .h-container .input-card .startButton{
+    font-size: 20px;
+  }
 }
