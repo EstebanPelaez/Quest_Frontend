@@ -23,7 +23,9 @@ export class QuestionComponent implements OnInit {
 
   ngOnInit(): void {
     this.toListQuestion();
-    this.toListAnswers();
+    setTimeout(() => {
+      this.toListAnswers();
+     }, 2000);
     this.toSaveData();
   }
 
