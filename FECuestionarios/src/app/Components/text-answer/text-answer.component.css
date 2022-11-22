@@ -64,3 +64,19 @@
 .isDisabled:hover {
   cursor: not-allowed;
 }
+
+@media screen and (max-width: 700px) {
+  .answers .ans-container{
+    align-self: center;
+    margin-left: 15px;
+    width: 80%;
+  }
+  .answers .ans-container .answer{
+    font-size: 16px;
+  }
+
+  .answers .ans-container .letter {
+    padding: 5px 7px;
+    font-size: 15px;
+  }
+}
