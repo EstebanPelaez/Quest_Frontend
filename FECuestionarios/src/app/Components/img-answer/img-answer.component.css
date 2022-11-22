@@ -12,7 +12,7 @@
   flex-direction: column;
   position: relative;
   align-items: center;
-  margin: 0 15px;
+  margin: auto;
   color: white;
   background-color: var(--darkblue);
   border: 6px solid white;
