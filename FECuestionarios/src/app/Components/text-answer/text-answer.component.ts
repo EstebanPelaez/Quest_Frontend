@@ -37,19 +37,22 @@ export class TextAnswerComponent implements OnInit {
   }
 
   verSeleccion(container:Element){
+    this.renderer2.setStyle(document.getElementById("mainq-container"), "filter", "brightness(0.5)");
     if(container.className.includes(' true')){
       this.isCorrecta = true;
       this.setStyleCA(container);
       this.renderer2.addClass(this.fb, 'right');
       this.renderer2.setStyle(this.fb, 'display', 'block');
-      document.getElementById('fbtxt')!.textContent = '¡Muy bien! tu respuesta es correcta';
+      document.getElementById('fb-title')!.textContent = '¡Muy bien!';
+      document.getElementById('fb-txt')!.textContent = 'Tu respuesta es correcta, sigue así!';
     }else{
       this.isCorrecta = false;
       this.setStyleWA(container);
       this.setStyleCA(document.getElementsByClassName('true').item(0)!);
       this.renderer2.addClass(this.fb, 'wrong');
       this.renderer2.setStyle(this.fb, 'display', 'block');
-      document.getElementById('fbtxt')!.textContent = '¡Oops! respuesta incorrecta';
+      document.getElementById('fb-title')!.textContent = '¡Oops!';
+      document.getElementById('fb-txt')!.textContent = 'Tu respuesta es incorrecta, debes esforzarte un poco más!';
     }
     this.isDisabled = true;
     this.renderer2.setStyle(container, 'disabled', 'true');
@@ -103,22 +106,22 @@ export class TextAnswerComponent implements OnInit {
   }
   saveDifficulty0(){
     let opcion = this.respuesta.idOpcion
-    
+
     switch(opcion){
       case '41': localStorage.setItem('puntuacion', '150')
                  localStorage.setItem('dificultad', '2')
                 break;
       case '42': localStorage.setItem('puntuacion', '100')
                  localStorage.setItem('dificultad', '1')
-                break; 
+                break;
       case '43': localStorage.setItem('puntuacion', '200')
                  localStorage.setItem('dificultad', '3')
                 break;
       case '44': localStorage.setItem('puntuacion', '100')
                  localStorage.setItem('dificultad', '1')
-                break;                             
+                break;
     }
-    
+
   }
   saveDifficulty1(){
     let tiempo = this.respuesta.tiempo

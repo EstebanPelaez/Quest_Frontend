@@ -111,6 +111,13 @@
   background-color: white;
   animation: fill-bar 5s 0s ease-in-out forwards;
 }
+.feedback #fb-title{
+  font-size: 30px;
+}
+
+.feedback #fb-txt{
+  font-size: 20px;
+}
 
 @keyframes fill-bar {
   to{
@@ -166,7 +173,7 @@
     margin-left: 20px;
     margin-right: 0;
     font-weight: 300;
-    font-size: 2.4vw;
+    font-size: 2.2vw;
   }
 
   .q-container .question .title{
@@ -183,6 +190,29 @@
   }
 
   .feedback{
-    font-size: 3vw;
+    display: none;
+    width: 30%;
+    height: 10%;
+    position: absolute;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    padding: 25px 0;
+    text-align: center;
+    font-size: 1.5vw;
+    overflow: hidden;
+    border: 5px solid white;
+    color: var(--darkblue);
+    backdrop-filter: blur(10px);
+  }
+  .feedback #fb-title{
+    font-size: 15px;
+  }
+
+  .feedback #fb-txt{
+    font-size: 10px;
   }
 }
